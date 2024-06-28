@@ -4,7 +4,7 @@
   "description": "A commonly used calculator written by JavaScript, including calculations related to finance, statistics, unit conversion, etc",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf dist",
+    "clean": "rimraf lib",
     "build": "npm run clean && rollup -c",
     "prettier": "prettier --write .",
     "lint": "eslint ./ --fix",
