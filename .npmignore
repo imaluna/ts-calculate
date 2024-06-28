@@ -1,5 +1,4 @@
-.rollup.cache/
-.babelrc
+babel.config.js
 node_modules/
 .eslintignore
 .eslintrc.js

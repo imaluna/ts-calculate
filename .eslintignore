@@ -1,12 +1,10 @@
 node_modules/
 lib/
 package.json
-.babelrc
 tsconfig.json
 tsconfig.types.json
 rollup.config.js
 .prettier.js
 package-lock.json
 examples/
-.rollup.cache/
 .husky/

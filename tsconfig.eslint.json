@@ -1,14 +1,14 @@
 {
-    "compilerOptions": {
-      "types": ["@types/node"],
-      "noEmit": true,
-      "allowJs": true
-    },
-    "extends": "./tsconfig.base.json",
-    "include": [
-      ".eslintrc.js",
-      ".prettier.js",
-      "rollup.config.js",
-      "babel.config.js",
-    ]
-  }
+  "compilerOptions": {
+    "types": ["@types/node"],
+    "noEmit": true,
+    "allowJs": true
+  },
+  "extends": "./tsconfig.base.json",
+  "include": [
+    ".eslintrc.js",
+    ".prettier.js",
+    "rollup.config.js",
+    "babel.config.js"
+  ]
+}
