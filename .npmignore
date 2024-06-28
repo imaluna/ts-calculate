@@ -1,0 +1,14 @@
+.rollup.cache/
+.babelrc
+node_modules/
+.eslintignore
+.eslintrc.js
+.gitignore
+.prettierignore
+.prettier.js
+pnpm-lock.yaml
+rollup.config.ts
+tsconfig.base.json
+tsconfig.json
+tsconfig.tsbuildinfo
+.husky/
