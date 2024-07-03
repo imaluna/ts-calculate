@@ -1,4 +1,4 @@
-import type { DfcOption, PerpetuityOption } from './types';
+import type { DfcOption } from './types';
 /**
  * Discounted cash flow model: Get the future value of annunity
  * @param {DfcOption} opt
@@ -25,4 +25,3 @@ export declare function getFVInDFC(opt: DfcOption): number;
 export declare function getPMTInDFC(opt: DfcOption): number;
 export declare function getPVInDFC(opt: DfcOption): number;
 export declare function getRateInDFC(opt: DfcOption): number;
-export declare function getPVInPerpetuity(opt: PerpetuityOption): number;

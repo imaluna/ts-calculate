@@ -7,15 +7,12 @@ export interface DfcOption {
     isEnd?: boolean;
     decimal?: number;
 }
-export interface PerpetuityOption {
-    pmt: number;
-    rate: number;
-    decimal?: number;
-}
 export interface LoanOption {
     principal: number;
     rate: number;
     years: number;
     period: number;
-    isEualPayment?: boolean;
+    periodPerYear?: number;
+    current?: number;
+    isEqualPayment?: boolean;
 }

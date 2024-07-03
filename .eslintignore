@@ -8,3 +8,4 @@ rollup.config.js
 package-lock.json
 examples/
 .husky/
+demo/

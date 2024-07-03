@@ -1,7 +1,7 @@
-import type { CheckTypeRecord, Params } from "../types/global";
-import { DataTypeEnum } from "../types/global";
+import type { CheckTypeRecord, Params } from '../types/global';
+import { DataTypeEnum } from '../types/global';
 export function isEmpty(val: any): boolean {
-  return val === "" || val === undefined || val === null;
+	return val === '' || val === undefined || val === null;
 }
 
 /**
@@ -11,9 +11,9 @@ export function isEmpty(val: any): boolean {
  * @returns {Boolean}
  */
 export function isParamsNotEmpty(params: Params, checkList: string[]): boolean {
-  return checkList.every((key) => {
-    return key in params && !isEmpty(params[key]);
-  });
+	return checkList.every((key) => {
+		return key in params && !isEmpty(params[key]);
+	});
 }
 /**
  * @function get the type of data
@@ -21,7 +21,7 @@ export function isParamsNotEmpty(params: Params, checkList: string[]): boolean {
  * @returns {String}
  */
 export function getDataType(data: any): string {
-  return Object.prototype.toString.call(data).slice(8, -1).toLocaleLowerCase();
+	return Object.prototype.toString.call(data).slice(8, -1).toLocaleLowerCase();
 }
 
 /**
@@ -30,7 +30,7 @@ export function getDataType(data: any): string {
  * @returns {Boolean}
  */
 export function isArray(data: any): boolean {
-  return getDataType(data) === DataTypeEnum.ARRAY;
+	return getDataType(data) === DataTypeEnum.ARRAY;
 }
 
 /**
@@ -39,30 +39,32 @@ export function isArray(data: any): boolean {
  * @returns {Boolean}
  */
 export function isObject(data: any): boolean {
-  return getDataType(data) === DataTypeEnum.OBJECT;
+	return getDataType(data) === DataTypeEnum.OBJECT;
 }
 
 export function checkObject(params: any) {
-  if (!isObject(params)) {
-    throwError("params must be object");
-  }
+	if (!isObject(params)) {
+		throwError('params must be object');
+	}
 }
-export function validateParams(
-  params: Params,
-  checkTypeRecord: CheckTypeRecord,
-): boolean | void {
-  checkObject(params);
-  checkObject(checkTypeRecord);
-  return Object.keys(checkTypeRecord).every((key: string) => {
-    const type = checkTypeRecord[key];
-    const valid = getDataType(params[key]) === type;
-    if (!valid) {
-      throwError(`${key} must be ${type}`);
-    }
-    return valid;
-  });
+export function validateParams(params: Params, checkTypeRecord: CheckTypeRecord): boolean | void {
+	checkObject(params);
+	checkObject(checkTypeRecord);
+	return Object.keys(checkTypeRecord).every((key: string) => {
+		const type = checkTypeRecord[key];
+		const valid = getDataType(params[key]) === type;
+		if (!valid) {
+			throwError(`${key} must be ${type}`);
+		}
+		return valid;
+	});
 }
 
 export function throwError(text: string): void {
-  throw Error(text);
+	throw Error(text);
 }
+export const POW = Math.pow;
+export const ABS = Math.abs;
+export const toFixed = (num: number, decimal: number): number => {
+	return +num.toFixed(decimal);
+};
