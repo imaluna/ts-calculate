@@ -68,3 +68,11 @@ export const ABS = Math.abs;
 export const toFixed = (num: number, decimal: number): number => {
 	return +num.toFixed(decimal);
 };
+
+export function isNegative(num: number): boolean {
+	return num < 0;
+}
+
+export function getSymbol(num: number): string {
+	return num > 0 ? '+' : num < 0 ? '-' : '';
+}

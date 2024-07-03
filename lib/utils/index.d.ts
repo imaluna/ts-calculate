@@ -31,3 +31,5 @@ export declare function throwError(text: string): void;
 export declare const POW: (x: number, y: number) => number;
 export declare const ABS: (x: number) => number;
 export declare const toFixed: (num: number, decimal: number) => number;
+export declare function isNegative(num: number): boolean;
+export declare function getSymbol(num: number): string;

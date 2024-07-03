@@ -22,7 +22,7 @@ module.exports = {
 			dir: 'lib',
 			format: 'umd',
 			entryFileNames: '[name].umd.js',
-			name: 'calculate',
+			name: 'calculatejs',
 			sourcemap: false
 		}
 	],

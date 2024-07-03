@@ -1,10 +1,10 @@
 /**
  *  Calculations about annunity, including discounted cash flow models (DFC) and perpetuities
  */
-import { POW, ABS } from '../utils';
+import { POW, ABS, toFixed, getSymbol } from '../utils';
 // import { validateParams, checkObject, POW, ABS } from '../utils';
 // import type { CheckTypeRecord } from '../types/global';
-import type { DfcOption } from './types';
+import type { DfcOption, NpvOption } from './types';
 // import { DataTypeEnum } from '../types/global';
 const DECIMAL = 4;
 const defaultOpt: DfcOption = {
@@ -143,4 +143,35 @@ export function getRateInDFC(opt: DfcOption): number {
 		rate = +((min + max) / 2).toFixed(decimal);
 	}
 	return rate;
+}
+
+export function getNPV(opt: NpvOption): number {
+	opt = { decimal: DECIMAL, ...opt };
+	const { initCf, cfList, rate, decimal } = opt as Required<NpvOption>;
+	let sum = initCf;
+	cfList.forEach((cf, index) => {
+		sum += cf * POW(1 + rate / 100, -(index + 1));
+	});
+	return toFixed(sum, decimal);
+}
+
+export function getIRR(opt: NpvOption): number[] {
+	opt = { decimal: DECIMAL, ...opt };
+	const { initCf, cfList, decimal } = opt as Required<NpvOption>;
+	const initSymbol = getSymbol(initCf);
+	const notValid = cfList.every((cf) => getSymbol(cf) === initSymbol);
+	if (notValid) return [];
+	const min = 0;
+	const precision = toFixed(POW(10, -decimal), decimal);
+	let rate = min;
+	const list: number[] = [];
+	while (rate <= 100) {
+		const _npv = getNPV({ ...opt, rate });
+		if (ABS(_npv) <= precision) {
+			console.log({ _npv });
+			list.push(rate);
+		}
+		rate = toFixed(rate + precision, decimal);
+	}
+	return list;
 }

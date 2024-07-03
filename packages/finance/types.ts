@@ -19,3 +19,10 @@ export interface LoanOption {
 	current?: number;
 	isEqualPayment?: boolean;
 }
+
+export interface NpvOption {
+	initCf: number;
+	cfList: number[];
+	rate?: number;
+	decimal?: number;
+}
