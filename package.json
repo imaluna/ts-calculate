@@ -18,14 +18,11 @@
 		"statistics",
 		"unit conversion"
 	],
-	"author": "shirlyChiang<https://github.com/shirlyChiang",
-	"homepage": "https://github.com/shirlyChiang/calculate-js#readme",
+	"author": "imaluna<https://github.com/imaluna/calculate-js.git",
+	"homepage": "https://github.com/imaluna/calculate-js#readme",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/shirlyChiang/calculate-js"
-	},
-	"bugs": {
-		"url": "https://github.com/project-framework/utils/issues"
+		"url": "https://github.com/imaluna/calculate-js"
 	},
 	"private": false,
 	"publishConfig": {
