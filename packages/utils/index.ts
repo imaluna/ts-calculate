@@ -76,3 +76,7 @@ export function isNegative(num: number): boolean {
 export function getSymbol(num: number): string {
 	return num > 0 ? '+' : num < 0 ? '-' : '';
 }
+
+export function isNumber(num: any): boolean {
+	return /^(\+|-)?\d+(\.\d+)?$/.test(num);
+}

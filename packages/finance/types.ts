@@ -14,10 +14,10 @@ export interface LoanOption {
 	principal: number;
 	rate: number;
 	years: number;
-	period: number;
 	periodPerYear?: number;
 	current?: number;
 	isEqualPayment?: boolean;
+	decimal?: number;
 }
 
 export interface NpvOption {

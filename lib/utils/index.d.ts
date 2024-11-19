@@ -33,3 +33,4 @@ export declare const ABS: (x: number) => number;
 export declare const toFixed: (num: number, decimal: number) => number;
 export declare function isNegative(num: number): boolean;
 export declare function getSymbol(num: number): string;
+export declare function isNumber(num: any): boolean;
