@@ -48,12 +48,14 @@ fvInDfc({
 
 ## API
 
-- [fvInDfc](#fvInDfcoptions)
+- [fvInDfc](#fvindfcparameters)
 
 ### fvInDfc(Parameters)
 
 Get the future value of annuity in discounted cash flow model
+
 **Examples**
+
 ```js
 import { fvInDfc } from 'calculate-js';
 fvInDfc({
