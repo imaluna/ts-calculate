@@ -49,6 +49,23 @@ fvInDfc({
 ## API
 
 - [fvInDfc](#fvindfcparameters)
+- [pvInDfc](#pvindfcparameters)
+- [rateInDfc](#rateindfcparameters)
+- [pmtInDfc](#pmtindfcparameters)
+- [npvInDfc](#npvindfcparameters)
+- [irrInDfc](#irrindfcparameters)
+- [pmtInloan](#pmtinloanparameters)
+- [repaymentScheduleInLoan](#repaymentscheduleinloanparameters)
+- [principalInLoan](#principalinloanparameters)
+- [interestInLoan](#interestinloanparameters)
+- [totalInterestInLoan](#totalinterestinloanparameters)
+- [mean](#meandata-decimal)
+- [variance](#variancedata-decimal)
+- [stdDeviation](#stddeviationdata-decimal)
+- [varianceOfSample](#varianceofsampledata-decimal)
+- [stdDeviationOfSample](#stddeviationofsampledata-decimal)
+- [semiDeviation](#semideviationdata-decimal)
+- [semiDeviation](#stdnormaldistributionvaluezscore)
 
 ### fvInDfc(Parameters)
 
@@ -112,20 +129,23 @@ pvInDfc({
 Type:  Number
 
 
-### pvInDfc(Parameters)
-Get the present value of annuity in discounted cash flow model
+
+
+
+### pmtInDfc(Parameters)
+Get the payment of annuity in discounted cash flow model
 
 **Examples**
 
 ```js
-import { pvInDfc } from 'calculate-js';
-pvInDfc({
+import { pmtInDfc } from 'calculate-js';
+pmtInDfc({
 	n: 20,
 	fv: 50000,
-	pmt: 1000,
+	pv:  -15465.56
 	rate: 8
 });
-// return: -15465.56
+// return: 1000
 ```
 #### Parameters
 
@@ -133,7 +153,7 @@ pvInDfc({
 | :------ | :----------- | :------ | :--------- | :------ |
 | n       | Total Number of payment periods  | Number  | ||
 | fv      | The future value    | Number  |   ||
-| pmt     | Payment per period   | Number  |   ||
+| pv     | The present value     | Number  |   ||
 | rate    | The interest rate per period；If the real interest rate is 8%, the return is 8 | Number  | ||
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 | isEnd   | Prepaid Annuity or Ordinary Annuity;If true, it's Ordinary Annuity   | Boolean | \<optional\>      | true |
@@ -142,8 +162,7 @@ pvInDfc({
 Type:  Number
 
 
-
-####  rateInDfc(Parameters)
+###  rateInDfc(Parameters)
 
 Get the interest rate per period in discounted cash flow model.If the return is 8, the real interest rate is 8%.
 
@@ -172,7 +191,7 @@ rateInDfc({
 #### Returns
 Type:  Number
 
-####  npv(Parameters)
+###  npv(Parameters)
 
 Get the Net Present Value in discounted cash flow model.
 
@@ -200,7 +219,7 @@ Type:  Number
 
 
 
-####  irr(Parameters)
+###  irr(Parameters)
 
 Get the Net Present Value in discounted cash flow model. It'll return an array of all posible values
 
@@ -225,7 +244,7 @@ irr({
 Type:  Array\<Number\>
 
 
-####  pmtInloan(Parameters)
+###  pmtInloan(Parameters)
 
 Get the payment per period of the loan.
 
@@ -257,7 +276,7 @@ pmtInloan({
 Type:  Number
 
 
-####  repaymentScheduleInLoan(Parameters)
+###  repaymentScheduleInLoan(Parameters)
 
 Get the repayment schedule in the loan
 
@@ -302,7 +321,7 @@ Type:  Array\<Object\>
 |interest| The Interest for the current period of the loan|Number|
 
 
-####  principalInLoan(Parameters)
+###  principalInLoan(Parameters)
 
 Get the Princial for the current period of the loan
 
@@ -335,7 +354,7 @@ principalInLoan({
 Type:  Number
 
 
-####  interestInLoan(Parameters)
+###  interestInLoan(Parameters)
 
 Get the Interest for the current period of the loan
 
@@ -370,7 +389,7 @@ Type:  Number
 
 
 
-####  totalInterestInLoan(Parameters)
+### totalInterestInLoan(Parameters)
 
 Get the total interest amount of the loan
 
@@ -402,7 +421,7 @@ Type:  Number
 
 
 
-####  mean(data, [decimal])
+###  mean(data, [decimal])
 
 Get the mean of a list of number
 
@@ -427,7 +446,7 @@ mean(
 Type:  Number
 
 
-####  variance(data, [decimal])
+###  variance(data, [decimal])
 
 Get the variance of a list of number
 
@@ -453,7 +472,7 @@ variance(
 Type:  Number
 
 
-####  stdDeviation(data, [decimal])
+###  stdDeviation(data, [decimal])
 
 Get the standard deviation of population
 
@@ -480,7 +499,7 @@ Type:  Number
 
 
 
-####  varianceOfSample(data, [decimal])
+###  varianceOfSample(data, [decimal])
 
 Get the variance of sample
 
@@ -506,7 +525,7 @@ varianceOfSample(
 Type:  Number
 
 
-####  stdDeviationOfSample(data, [decimal])
+###  stdDeviationOfSample(data, [decimal])
 
 Get the standard deviation of sample
 
@@ -533,7 +552,7 @@ Type:  Number
 
 
 
-####  semiDeviation(data, target, [decimal])
+###  semiDeviation(data, target, [decimal])
 
 Get the target/down deviation of sample
 
@@ -561,7 +580,7 @@ semiDeviation(
 Type:  Number
 
 
-####  stdNormalDistributionValue(zScore)
+###  stdNormalDistributionValue(zScore)
 
 Get the standard normal distribution value by z-score
 
