@@ -8,7 +8,7 @@ import type { CheckTypeRecord } from '../types/global';
 import { DataTypeEnum } from '../types/global';
 import type { LoanOption } from './types';
 import { toFixed, POW, ABS } from '../utils/index';
-import { DECIMAL } from '@/config';
+import { DECIMAL } from '../config';
 
 const defaultOtp = { isEqualPayment: true, periodPerYear: 1, decimal: DECIMAL };
 const defaultCheckRecord: CheckTypeRecord = {
@@ -23,8 +23,7 @@ export function pmtInloan(opt: LoanOption): number {
 	const checkMap: CheckTypeRecord = {
 		principal: DataTypeEnum.NUMBER,
 		rate: DataTypeEnum.NUMBER,
-		periodPerYear: DataTypeEnum.NUMBER,
-		years: DataTypeEnum.NUMBER,
+		periods: DataTypeEnum.NUMBER,
 		isEqualPayment: DataTypeEnum.BOOLEAN,
 		...defaultCheckRecord
 	};
@@ -32,20 +31,18 @@ export function pmtInloan(opt: LoanOption): number {
 	if (!isValid) {
 		return NaN;
 	}
-	const periodPerYear = opt.periodPerYear as number;
-	const n = opt.years * periodPerYear;
-	const rate = opt.rate / periodPerYear;
+	const { periods, rate, decimal } = opt as Required<LoanOption>;
 	if (opt.isEqualPayment) {
 		const pmt = pmtInDfc({
-			n,
+			n: periods,
 			fv: 0,
 			pv: opt.principal,
 			rate,
-			decimal: opt.decimal
+			decimal
 		});
 		return ABS(pmt);
 	} else {
-		return toFixed(interestInLoan(opt) + principalInLoan(opt), opt.decimal as number);
+		return toFixed(interestInLoan(opt) + principalInLoan(opt), decimal);
 	}
 }
 /**
@@ -57,8 +54,8 @@ export function principalInLoan(opt: LoanOption): number {
 	const checkMap: CheckTypeRecord = {
 		principal: DataTypeEnum.NUMBER,
 		rate: DataTypeEnum.NUMBER,
-		periodPerYear: DataTypeEnum.NUMBER,
-		years: DataTypeEnum.NUMBER,
+		periods: DataTypeEnum.NUMBER,
+		currentPeriod: DataTypeEnum.NUMBER,
 		isEqualPayment: DataTypeEnum.BOOLEAN,
 		...defaultCheckRecord
 	};
@@ -66,13 +63,11 @@ export function principalInLoan(opt: LoanOption): number {
 	if (!isValid) {
 		return NaN;
 	}
-	const periodPerYear = opt.periodPerYear as number;
-	const n = opt.years * periodPerYear;
-	const decimal = opt.decimal as number;
-	if (opt.isEqualPayment) {
+	const { periods, decimal, isEqualPayment } = opt as Required<LoanOption>;
+	if (isEqualPayment) {
 		return toFixed(pmtInloan(opt) - interestInLoan(opt), decimal);
 	} else {
-		return toFixed(opt.principal / n, decimal);
+		return toFixed(opt.principal / periods, decimal);
 	}
 }
 /**
@@ -84,8 +79,8 @@ export function interestInLoan(opt: LoanOption): number {
 	const checkMap: CheckTypeRecord = {
 		principal: DataTypeEnum.NUMBER,
 		rate: DataTypeEnum.NUMBER,
-		periodPerYear: DataTypeEnum.NUMBER,
-		years: DataTypeEnum.NUMBER,
+		periods: DataTypeEnum.NUMBER,
+		currentPeriod: DataTypeEnum.NUMBER,
 		isEqualPayment: DataTypeEnum.BOOLEAN,
 		...defaultCheckRecord
 	};
@@ -93,16 +88,17 @@ export function interestInLoan(opt: LoanOption): number {
 	if (!isValid) {
 		return NaN;
 	}
-	const { periodPerYear, current, years, rate, decimal } = opt as Required<LoanOption>;
-	const _rate = rate / periodPerYear / 100;
-	if (opt.isEqualPayment) {
-		const temp = POW(1 + _rate, years * periodPerYear);
+	const { periods, rate, decimal, currentPeriod, isEqualPayment } = opt as Required<LoanOption>;
+
+	const _rate = rate / 100;
+	if (isEqualPayment) {
+		const temp = POW(1 + _rate, periods);
 		return toFixed(
-			(opt.principal * _rate * (temp - POW(1 + _rate, current - 1))) / (temp - 1),
+			(opt.principal * _rate * (temp - POW(1 + _rate, currentPeriod - 1))) / (temp - 1),
 			decimal
 		);
 	} else {
-		return toFixed((opt.principal - (current - 1) * principalInLoan(opt)) * _rate, decimal);
+		return toFixed((opt.principal - (currentPeriod - 1) * principalInLoan(opt)) * _rate, decimal);
 	}
 }
 /**
@@ -114,8 +110,7 @@ export function totalInterestInLoan(opt: LoanOption): number {
 	const checkMap: CheckTypeRecord = {
 		principal: DataTypeEnum.NUMBER,
 		rate: DataTypeEnum.NUMBER,
-		periodPerYear: DataTypeEnum.NUMBER,
-		years: DataTypeEnum.NUMBER,
+		periods: DataTypeEnum.NUMBER,
 		isEqualPayment: DataTypeEnum.BOOLEAN,
 		...defaultCheckRecord
 	};
@@ -123,22 +118,22 @@ export function totalInterestInLoan(opt: LoanOption): number {
 	if (!isValid) {
 		return NaN;
 	}
-	const { principal, rate, periodPerYear, years, decimal } = opt as Required<LoanOption>;
-	const n = years * periodPerYear;
-	if (opt.isEqualPayment) {
-		return toFixed(n * pmtInloan(opt) - principal, decimal);
+	const { periods, rate, decimal, isEqualPayment, principal } = opt as Required<LoanOption>;
+	const _rate = rate / 100;
+
+	if (isEqualPayment) {
+		return toFixed(periods * pmtInloan(opt) - principal, decimal);
 	} else {
-		return toFixed(((n + 1) * principal * (rate / periodPerYear / 100)) / 2, decimal);
+		return toFixed(((periods + 1) * principal * _rate) / 2, decimal);
 	}
 }
 
-export function pmtListInLoan(opt: LoanOption): Array<Record<string, number>> {
+export function repaymentScheduleInLoan(opt: LoanOption): Array<Record<string, number>> {
 	opt = { ...defaultOtp, ...opt };
 	const checkMap: CheckTypeRecord = {
 		principal: DataTypeEnum.NUMBER,
 		rate: DataTypeEnum.NUMBER,
-		periodPerYear: DataTypeEnum.NUMBER,
-		years: DataTypeEnum.NUMBER,
+		periods: DataTypeEnum.NUMBER,
 		isEqualPayment: DataTypeEnum.BOOLEAN,
 		...defaultCheckRecord
 	};
@@ -146,19 +141,18 @@ export function pmtListInLoan(opt: LoanOption): Array<Record<string, number>> {
 	if (!isValid) {
 		return [];
 	}
-	const { periodPerYear, years, decimal } = opt as Required<LoanOption>;
-	const n = years * periodPerYear;
+	const { periods, decimal } = opt as Required<LoanOption>;
 	const list: Array<Record<string, number>> = [];
-	for (let i = 1; i <= n; i++) {
-		const _opt = { ...opt, current: i };
+	for (let i = 1; i <= periods; i++) {
+		const _opt = { ...opt, currentPeriod: i };
 		const principal = principalInLoan(_opt);
-		const int = interestInLoan(_opt);
-		const pmt = toFixed(principal + int, decimal);
+		const interest = interestInLoan(_opt);
+		const pmt = toFixed(principal + interest, decimal);
 		const item: Record<string, number> = {
-			current: i,
+			currentPeriod: i,
 			principal,
-			interest: int,
-			payment: pmt
+			interest: interest,
+			repayment: pmt
 		};
 
 		list.push(item);

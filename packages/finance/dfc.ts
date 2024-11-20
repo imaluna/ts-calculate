@@ -5,7 +5,7 @@ import { POW, ABS, toFixed, getSymbol, validateParams, checkObject } from '../ut
 import type { CheckTypeRecord } from '../types/global';
 import type { DfcOption, NpvOption } from './types';
 import { DataTypeEnum } from '../types/global';
-import { DECIMAL } from '@/config';
+import { DECIMAL } from '../config';
 
 const defaultOpt: DfcOption = {
 	isEnd: true,

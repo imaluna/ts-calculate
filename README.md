@@ -80,6 +80,8 @@ fvInDfc({
 #### Returns
 Type:  Number
 
+
+
 ### pvInDfc(Parameters)
 Get the present value of annuity in discounted cash flow model
 
@@ -225,16 +227,18 @@ Type:  Array\<Number\>
 
 ####  pmtInloan(Parameters)
 
-Get the payment per period in loan
+Get the payment per period of the loan.
 
 **Examples**
+
+If you secure a loan of \$3,000,000 with a 30-year term, a monthly repayment schedule, an annual interest rate of 5%, and a repayment method of equal repayment, you will be required to make a monthly repayment of \$16,104.65.
+
 ```js
 import { pmtInloan } from 'calculate-js';
 pmtInloan({
 	principal: 3000000,
-	rate: 5,
-	periodPerYear: 12,
-	years: 30,
+	rate: 5/12,
+	periods: 30 * 12,
 	isEqualPayment: true,
 	decimal: 2
 })
@@ -244,12 +248,341 @@ pmtInloan({
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
-| initCf  | The initial cash flow | Number  | ||
-| cfList      | Cash flow list    | Array\<Number\> |   ||
+| principal | The Principle of the loan | Number  | ||
+| rate      | The interst rate of every period;    | Number|   ||
+| periods | Number of loan terms  | Number  |        |   ||
+|isEqualPayment|The repayment method;If true, it's Fixed Repayment Loan; If false, it's Equal Principal Payment Loan|Boolean|\<optional\> |true|
+| decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
+#### Returns
+Type:  Number
+
+
+####  repaymentScheduleInLoan(Parameters)
+
+Get the repayment schedule in the loan
+
+**Examples**
+
+If you secure a loan of \$3,000,000 with a 30-year term, a monthly repayment schedule, an annual interest rate of 5%, and a repayment method of equal repayment,return the repayment schedule list
+
+```js
+import { repaymentScheduleInLoan } from 'calculate-js';
+repaymentScheduleInLoan({
+	principal: 30000,
+	rate: 0.6,
+	periods: 4,
+	isEqualPayment: true,
+	decimal: 2
+});
+// return: 
+/** [
+ {"currentPeriod":1,"principal":7432.84,"interest":180,"repayment":7612.84},
+ {"currentPeriod":2,"principal":7477.44,"interest":135.4,"repayment":7612.84},
+ {"currentPeriod":3,"principal":7522.3,"interest":90.54,"repayment":7612.84},
+ {"currentPeriod":4,"principal":7567.44,"interest":45.4,"repayment":7612.84}]
+ **/
+```
+#### Parameters
+
+| Name    | Description  | Type    | Attributes | Default |
+| :------ | :----------- | :------ | :--------- | :------ |
+| principal | The Principle of the loan | Number  | ||
+| rate      | The interst rate of every period;    | Number|   ||
+| periods | Number of loan terms  | Number  |        |   ||
+|isEqualPayment|The repayment method;If true, it's Fixed Repayment Loan; If false, it's Equal Principal Payment Loan|Boolean|\<optional\> |true|
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
 #### Returns
-Type:  Array\<Number\>
+Type:  Array\<Object\>
+| Name    | Description  | Type    | 
+| :------ | :----------- | :------ |
+| currentPeriod| The current period of the loan | Number|
+|repayment|The Repayment amount for the current period of the loan|Number|
+|principal|The Principal for the current period of the loan|Number|
+|interest| The Interest for the current period of the loan|Number|
+
+
+####  principalInLoan(Parameters)
+
+Get the Princial for the current period of the loan
+
+**Examples**
+
+```js
+import { principalInLoan } from 'calculate-js';
+principalInLoan({
+	principal: 30000,
+	rate: 0.6,
+	periods: 4,
+	currentPeriod: 2,
+	isEqualPayment: true,
+	decimal: 2
+}); 
+// return:  7477.44
+```
+#### Parameters
+
+| Name    | Description  | Type    | Attributes | Default |
+| :------ | :----------- | :------ | :--------- | :------ |
+| principal | The Principle of the loan | Number  | ||
+| rate      | The interst rate of every period;    | Number|   ||
+| periods | Number of loan terms  | Number  |        |   ||
+| currentPeriod| The current period of the loan | Number|||
+|isEqualPayment|The repayment method;If true, it's Fixed Repayment Loan; If false, it's Equal Principal Payment Loan|Boolean|\<optional\> |true|
+| decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
+
+#### Returns
+Type:  Number
+
+
+####  interestInLoan(Parameters)
+
+Get the Interest for the current period of the loan
+
+**Examples**
+
+```js
+import { interestInLoan } from 'calculate-js';
+interestInLoan({
+	principal: 30000,
+	rate: 0.6,
+	periods: 4,
+	currentPeriod: 2,
+	isEqualPayment: true,
+	decimal: 2
+}); 
+// return:  135.4
+```
+#### Parameters
+
+| Name    | Description  | Type    | Attributes | Default |
+| :------ | :----------- | :------ | :--------- | :------ |
+| principal | The Principle of the loan | Number  | ||
+| rate      | The interst rate of every period;    | Number|   ||
+| periods | Number of loan terms  | Number  |        |   ||
+| currentPeriod| The current period of the loan | Number|||
+|isEqualPayment|The repayment method;If true, it's Fixed Repayment Loan; If false, it's Equal Principal Payment Loan|Boolean|\<optional\> |true|
+| decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
+
+#### Returns
+Type:  Number
+
+
+
+
+####  totalInterestInLoan(Parameters)
+
+Get the total interest amount of the loan
+
+**Examples**
+
+```js
+import { totalInterestInLoan } from 'calculate-js';
+totalInterestInLoan({
+	principal: 30000,
+	rate: 0.6,
+	periods: 4,
+	isEqualPayment: true,
+	decimal: 2
+}); 
+// return:  451.36
+```
+#### Parameters
+
+| Name    | Description  | Type    | Attributes | Default |
+| :------ | :----------- | :------ | :--------- | :------ |
+| principal | The Principle of the loan | Number  | ||
+| rate      | The interst rate of every period;    | Number|   ||
+| periods | Number of loan terms  | Number  |        |   ||
+|isEqualPayment|The repayment method;If true, it's Fixed Repayment Loan; If false, it's Equal Principal Payment Loan|Boolean|\<optional\> |true|
+| decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
+
+#### Returns
+Type:  Number
+
+
+
+####  mean(data, [decimal])
+
+Get the mean of a list of number
+
+**Examples**
+
+```js
+import { mean } from 'calculate-js';
+mean(
+	[1,2,3,4,5,6,7,8,9,10],
+	2
+); 
+// return:  5.5
+```
+#### Parameters
+
+| Name    | Description  | Type    | Attributes | Default |
+| :------ | :----------- | :------ | :--------- | :------ |
+| data | A list of number | Array\<Number\>  | ||
+| decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
+
+#### Returns
+Type:  Number
+
+
+####  variance(data, [decimal])
+
+Get the variance of a list of number
+
+**Examples**
+
+```js
+import { variance } from 'calculate-js';
+variance(
+	[1,2,3,4,5,6,7,8,9,10],
+	2
+); 
+// return: 8.25
+```
+
+#### Parameters
+
+| Name    | Description  | Type    | Attributes | Default |
+| :------ | :----------- | :------ | :--------- | :------ |
+| data | A list of number | Array\<Number\>  | ||
+| decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
+
+#### Returns
+Type:  Number
+
+
+####  stdDeviation(data, [decimal])
+
+Get the standard deviation of population
+
+**Examples**
+
+```js
+import { stdDeviation } from 'calculate-js';
+stdDeviation(
+	[1,2,3,4,5,6,7,8,9,10],
+	2
+); 
+// return: 2.87
+```
+
+#### Parameters
+
+| Name    | Description  | Type    | Attributes | Default |
+| :------ | :----------- | :------ | :--------- | :------ |
+| data | A list of number | Array\<Number\>  | ||
+| decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
+
+#### Returns
+Type:  Number
+
+
+
+####  varianceOfSample(data, [decimal])
+
+Get the variance of sample
+
+**Examples**
+
+```js
+import { varianceOfSample } from 'calculate-js';
+varianceOfSample(
+	[1,2,3,4,5,6,7,8,9,10],
+	2
+); 
+// return: 9.17
+```
+
+#### Parameters
+
+| Name    | Description  | Type    | Attributes | Default |
+| :------ | :----------- | :------ | :--------- | :------ |
+| data | A list of number | Array\<Number\>  | ||
+| decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
+
+#### Returns
+Type:  Number
+
+
+####  stdDeviationOfSample(data, [decimal])
+
+Get the standard deviation of sample
+
+**Examples**
+
+```js
+import { stdDeviationOfSample } from 'calculate-js';
+stdDeviationOfSample(
+	[1,2,3,4,5,6,7,8,9,10],
+	2
+); 
+// return: 3.03
+```
+
+#### Parameters
+
+| Name    | Description  | Type    | Attributes | Default |
+| :------ | :----------- | :------ | :--------- | :------ |
+| data | A list of number | Array\<Number\>  | ||
+| decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
+
+#### Returns
+Type:  Number
+
+
+
+####  semiDeviation(data, target, [decimal])
+
+Get the target/down deviation of sample
+
+**Examples**
+
+```js
+import { semiDeviation } from 'calculate-js';
+semiDeviation(
+	[1,2,3,4,5,6,7,8,9,10],
+	3,
+	2
+); 
+// return: 4.01
+```
+
+#### Parameters
+
+| Name    | Description  | Type    | Attributes | Default |
+| :------ | :----------- | :------ | :--------- | :------ |
+| data | A list of number | Array\<Number\>  | ||
+|target|The target for the list|Number|||
+| decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
+
+#### Returns
+Type:  Number
+
+
+####  stdNormalDistributionValue(zScore)
+
+Get the standard normal distribution value by z-score
+
+**Examples**
+
+```js
+import { stdNormalDistributionValue } from 'calculate-js';
+stdNormalDistributionValue(1.24); //  0.89251
+stdNormalDistributionValue(-1.24); //  0.10749
+stdNormalDistributionValue(0);// 0.5
+```
+
+#### Parameters
+
+| Name    | Description  | Type    | Attributes | Default |
+| :------ | :----------- | :------ | :--------- | :------ |
+| zScore | z-score| Number  | ||
+
+#### Returns
+Type:  Number
+
 
 ## Test
 

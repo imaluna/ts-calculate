@@ -9,10 +9,9 @@ export interface DfcOption {
 }
 export interface LoanOption {
     principal: number;
+    periods: number;
     rate: number;
-    years: number;
-    periodPerYear?: number;
-    current?: number;
+    currentPeriod?: number;
     isEqualPayment?: boolean;
     decimal?: number;
 }

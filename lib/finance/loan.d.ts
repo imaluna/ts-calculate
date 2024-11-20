@@ -16,7 +16,7 @@ export declare function interestInLoan(opt: LoanOption): number;
  * @reutrn {number}
  */
 export declare function totalInterestInLoan(opt: LoanOption): number;
-export declare function pmtListInLoan(opt: LoanOption): Array<Record<string, number>>;
+export declare function repaymentScheduleInLoan(opt: LoanOption): Array<Record<string, number>>;
 /**
  * @function banker's rounding
  * (1）被修约的数字小于5时，该数字舍去；
