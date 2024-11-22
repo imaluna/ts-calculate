@@ -9,19 +9,19 @@ module.exports = {
 		{
 			dir: 'lib',
 			format: 'cjs',
-			entryFileNames: '[name].cjs.js',
+			entryFileNames: 'calculate.cjs.js',
 			sourcemap: false
 		},
 		{
 			dir: 'lib',
 			format: 'esm',
-			entryFileNames: '[name].esm.js',
+			entryFileNames: 'calculate.esm.js',
 			sourcemap: false
 		},
 		{
 			dir: 'lib',
 			format: 'umd',
-			entryFileNames: '[name].min.js',
+			entryFileNames: 'calculate.min.js',
 			name: 'calculatejs',
 			sourcemap: false
 		}

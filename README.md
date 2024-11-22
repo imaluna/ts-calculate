@@ -7,14 +7,15 @@ A commonly used calculator written by JavaScript, including calculations related
 [![CDNJS](https://img.shields.io/cdnjs/v/calculate-js.svg)](https://cdnjs.com/libraries/calculate-js)
 
 [中文](https://github.com/imaluna/calculate-js/blob/main/README-zh_cn.md)
+
 ## Load
 
-The library is the single JavaScript file decimal.js or ES module decimal.mjs.
+The library is the single JavaScript file calculate.js or ES module calculate.mjs.
 
-**Browser:**
+**cdn**
 
 ```js
-<script src="https://cdnjs.cloudflare.com/ajax/libs/calculate-js/1.0.0/lib/index.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/calculate-js/1.0.0/lib/calculate.min.js"></script>
 ```
 
 **node:**
@@ -29,7 +30,7 @@ $ pnpm add calculate-js
 $ bun add calculate-js
 ```
 
-### Usage
+## Usage
 
 In demand
 
@@ -54,10 +55,6 @@ calculatejs.fvInDfc({
 	rate: 8
 });
 ```
-
-**TypeScript declaration file**
-
-lib/index.d.ts
 
 
 ## Features
@@ -102,7 +99,7 @@ fvInDfc({
 });
 // return: -45761.9643
 ```
-#### Parameters
+### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -113,7 +110,7 @@ fvInDfc({
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 | isEnd   | Prepaid Annuity or Ordinary Annuity;If true, it's Ordinary Annuity   | Boolean | \<optional\>      | true |
 
-#### Returns
+### Returns
 Type:  Number
 
 
@@ -133,7 +130,7 @@ pvInDfc({
 });
 // return: -15465.56
 ```
-#### Parameters
+### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -144,7 +141,7 @@ pvInDfc({
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 | isEnd   | Prepaid Annuity or Ordinary Annuity;If true, it's Ordinary Annuity   | Boolean | \<optional\>      | true |
 
-#### Returns
+### Returns
 Type:  Number
 
 
@@ -166,7 +163,7 @@ pmtInDfc({
 });
 // return: 1000
 ```
-#### Parameters
+### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -177,7 +174,7 @@ pmtInDfc({
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 | isEnd   | Prepaid Annuity or Ordinary Annuity;If true, it's Ordinary Annuity   | Boolean | \<optional\>      | true |
 
-#### Returns
+### Returns
 Type:  Number
 
 
@@ -196,7 +193,7 @@ rateInDfc({
 });
 // return: 8
 ```
-#### Parameters
+### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -207,7 +204,7 @@ rateInDfc({
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 | isEnd   | Prepaid Annuity or Ordinary Annuity;If true, it's Ordinary Annuity   | Boolean | \<optional\>      | true |
 
-#### Returns
+### Returns
 Type:  Number
 
 ###  npv(Parameters)
@@ -224,7 +221,7 @@ npv({
 });
 // return: 8
 ```
-#### Parameters
+### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -233,14 +230,14 @@ npv({
 | rate |  The interest rate per period | Number  | ||
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-#### Returns
+### Returns
 Type:  Number
 
 
 
 ###  irr(Parameters)
 
-Get the Net Present Value in discounted cash flow model. It'll return an array of all posible values
+Get the Internal Rate of Return in discounted cash flow model. It'll return an array of all posible values
 
 **Examples**
 ```js
@@ -251,7 +248,7 @@ irr({
 });
 // return: [23.3752]
 ```
-#### Parameters
+### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -259,7 +256,7 @@ irr({
 | cfList      | Cash flow list    | Array\<Number\> |   ||
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-#### Returns
+### Returns
 Type:  Array\<Number\>
 
 
@@ -282,7 +279,7 @@ pmtInloan({
 })
 // return: 16104.65
 ```
-#### Parameters
+### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -291,7 +288,13 @@ pmtInloan({
 | periods | Number of loan terms  | Number  |        |   ||
 |isEqualPayment|The repayment method;If true, it's Fixed Repayment Loan; If false, it's Equal Principal Payment Loan|Boolean|\<optional\> |true|
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
-#### Returns
+
+**notes**
+
+Fixed Repayment Loan: The repayment amount is the same for each term
+Equal Principal Payment Loan: The principal is the same for each term
+
+### Returns
 Type:  Number
 
 
@@ -301,7 +304,7 @@ Get the repayment schedule in the loan
 
 **Examples**
 
-If you secure a loan of \$3,000,000 with a 30-year term, a monthly repayment schedule, an annual interest rate of 5%, and a repayment method of equal repayment,return the repayment schedule list
+If you secure a loan of $30,000 with a 4-month term, a monthly repayment schedule, an annual interest rate of 5%, and a repayment method of equal repayment, the following is your repayment plan list
 
 ```js
 import { repaymentScheduleInLoan } from 'calculate-js';
@@ -320,7 +323,7 @@ repaymentScheduleInLoan({
  {"currentPeriod":4,"principal":7567.44,"interest":45.4,"repayment":7612.84}]
  **/
 ```
-#### Parameters
+### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -330,7 +333,7 @@ repaymentScheduleInLoan({
 |isEqualPayment|The repayment method;If true, it's Fixed Repayment Loan; If false, it's Equal Principal Payment Loan|Boolean|\<optional\> |true|
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-#### Returns
+### Returns
 Type:  Array\<Object\>
 | Name    | Description  | Type    | 
 | :------ | :----------- | :------ |
@@ -358,7 +361,7 @@ principalInLoan({
 }); 
 // return:  7477.44
 ```
-#### Parameters
+### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -369,7 +372,7 @@ principalInLoan({
 |isEqualPayment|The repayment method;If true, it's Fixed Repayment Loan; If false, it's Equal Principal Payment Loan|Boolean|\<optional\> |true|
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-#### Returns
+### Returns
 Type:  Number
 
 
@@ -391,7 +394,7 @@ interestInLoan({
 });
 // return:  135.4
 ```
-#### Parameters
+### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -402,7 +405,7 @@ interestInLoan({
 |isEqualPayment|The repayment method;If true, it's Fixed Repayment Loan; If false, it's Equal Principal Payment Loan|Boolean|\<optional\> |true|
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-#### Returns
+### Returns
 Type:  Number
 
 
@@ -425,7 +428,7 @@ totalInterestInLoan({
 }); 
 // return:  451.36
 ```
-#### Parameters
+### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -435,7 +438,7 @@ totalInterestInLoan({
 |isEqualPayment|The repayment method;If true, it's Fixed Repayment Loan; If false, it's Equal Principal Payment Loan|Boolean|\<optional\> |true|
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-#### Returns
+### Returns
 Type:  Number
 
 
@@ -454,14 +457,14 @@ mean(
 ); 
 // return:  5.5
 ```
-#### Parameters
+### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
 | data | A list of number | Array\<Number\>  | ||
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-#### Returns
+### Returns
 Type:  Number
 
 
@@ -480,14 +483,14 @@ variance(
 // return: 8.25
 ```
 
-#### Parameters
+### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
 | data | A list of number | Array\<Number\>  | ||
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-#### Returns
+### Returns
 Type:  Number
 
 
@@ -506,14 +509,14 @@ stdDeviation(
 // return: 2.87
 ```
 
-#### Parameters
+### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
 | data | A list of number | Array\<Number\>  | ||
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-#### Returns
+### Returns
 Type:  Number
 
 
@@ -533,14 +536,14 @@ varianceOfSample(
 // return: 9.17
 ```
 
-#### Parameters
+### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
 | data | A list of number | Array\<Number\>  | ||
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-#### Returns
+### Returns
 Type:  Number
 
 
@@ -559,14 +562,14 @@ stdDeviationOfSample(
 // return: 3.03
 ```
 
-#### Parameters
+### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
 | data | A list of number | Array\<Number\>  | ||
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-#### Returns
+### Returns
 Type:  Number
 
 
@@ -587,7 +590,7 @@ semiDeviation(
 // return: 4.01
 ```
 
-#### Parameters
+### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -595,7 +598,7 @@ semiDeviation(
 |target|The target for the list|Number|||
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-#### Returns
+### Returns
 Type:  Number
 
 
@@ -612,13 +615,13 @@ stdNormalDistributionValue(-1.24); //  0.10749
 stdNormalDistributionValue(0);// 0.5
 ```
 
-#### Parameters
+### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
 | zScore | z-score| Number  | ||
 
-#### Returns
+### Returns
 Type:  Number
 
 
@@ -633,7 +636,8 @@ When there is a number after 5, round up.
 When there is no number after 5:
 If it is an odd number before 5, round up.
 If it is an even number before 5, round down.
-Learn more 👉🏻 [banker's rounding](https://docs.alipayplus.com/alipayplus/alipayplus/reconcile_mpp/bank_rounding?role=MPP&product=Payment1&version=1.5.5)
+
+**Learn more 👉🏻 [banker's rounding](https://docs.alipayplus.com/alipayplus/alipayplus/reconcile_mpp/bank_rounding?role=MPP&product=Payment1&version=1.5.5)**
 
 **Examples**
 
@@ -646,13 +650,13 @@ calculatejs.bankersRounding(5.2352, 2); // 5.24
 
 ```
 
-#### Parameters
+### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
 | number | The number to be rounded | Number  | ||
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
-#### Returns
+### Returns
 Type:  Number
 
 
