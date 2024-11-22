@@ -87,7 +87,7 @@ calculatejs.fvInDfc({
 
 Get the future value of annuity in discounted cash flow model
 
-**Examples**
+#### Examples
 
 ```js
 import { fvInDfc } from 'calculate-js';
@@ -99,7 +99,7 @@ fvInDfc({
 });
 // return: -45761.9643
 ```
-### Parameters
+#### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -110,7 +110,7 @@ fvInDfc({
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 | isEnd   | Prepaid Annuity or Ordinary Annuity;If true, it's Ordinary Annuity   | Boolean | \<optional\>      | true |
 
-### Returns
+#### Returns
 Type:  Number
 
 
@@ -118,7 +118,7 @@ Type:  Number
 ### pvInDfc(Parameters)
 Get the present value of annuity in discounted cash flow model
 
-**Examples**
+#### Examples
 
 ```js
 import { pvInDfc } from 'calculate-js';
@@ -130,7 +130,7 @@ pvInDfc({
 });
 // return: -15465.56
 ```
-### Parameters
+#### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -141,7 +141,7 @@ pvInDfc({
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 | isEnd   | Prepaid Annuity or Ordinary Annuity;If true, it's Ordinary Annuity   | Boolean | \<optional\>      | true |
 
-### Returns
+#### Returns
 Type:  Number
 
 
@@ -151,7 +151,7 @@ Type:  Number
 ### pmtInDfc(Parameters)
 Get the payment of annuity in discounted cash flow model
 
-**Examples**
+#### Examples
 
 ```js
 import { pmtInDfc } from 'calculate-js';
@@ -163,7 +163,7 @@ pmtInDfc({
 });
 // return: 1000
 ```
-### Parameters
+#### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -174,7 +174,7 @@ pmtInDfc({
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 | isEnd   | Prepaid Annuity or Ordinary Annuity;If true, it's Ordinary Annuity   | Boolean | \<optional\>      | true |
 
-### Returns
+#### Returns
 Type:  Number
 
 
@@ -182,7 +182,7 @@ Type:  Number
 
 Get the interest rate per period in discounted cash flow model.If the return is 8, the real interest rate is 8%.
 
-**Examples**
+#### Examples
 ```js
 import { rateInDfc } from 'calculate-js';
 rateInDfc({
@@ -193,7 +193,7 @@ rateInDfc({
 });
 // return: 8
 ```
-### Parameters
+#### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -204,14 +204,14 @@ rateInDfc({
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 | isEnd   | Prepaid Annuity or Ordinary Annuity;If true, it's Ordinary Annuity   | Boolean | \<optional\>      | true |
 
-### Returns
+#### Returns
 Type:  Number
 
 ###  npv(Parameters)
 
 Get the Net Present Value in discounted cash flow model.
 
-**Examples**
+#### Examples
 ```js
 import { npv } from 'calculate-js';
 npv({
@@ -221,7 +221,7 @@ npv({
 });
 // return: 8
 ```
-### Parameters
+#### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -230,7 +230,7 @@ npv({
 | rate |  The interest rate per period | Number  | ||
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-### Returns
+#### Returns
 Type:  Number
 
 
@@ -239,7 +239,7 @@ Type:  Number
 
 Get the Internal Rate of Return in discounted cash flow model. It'll return an array of all posible values
 
-**Examples**
+#### Examples
 ```js
 import { irr } from 'calculate-js';
 irr({
@@ -248,7 +248,7 @@ irr({
 });
 // return: [23.3752]
 ```
-### Parameters
+#### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -256,7 +256,7 @@ irr({
 | cfList      | Cash flow list    | Array\<Number\> |   ||
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-### Returns
+#### Returns
 Type:  Array\<Number\>
 
 
@@ -264,7 +264,7 @@ Type:  Array\<Number\>
 
 Get the payment per period of the loan.
 
-**Examples**
+#### Examples
 
 If you secure a loan of \$3,000,000 with a 30-year term, a monthly repayment schedule, an annual interest rate of 5%, and a repayment method of equal repayment, you will be required to make a monthly repayment of \$16,104.65.
 
@@ -279,7 +279,7 @@ pmtInloan({
 })
 // return: 16104.65
 ```
-### Parameters
+#### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -294,7 +294,7 @@ pmtInloan({
 Fixed Repayment Loan: The repayment amount is the same for each term
 Equal Principal Payment Loan: The principal is the same for each term
 
-### Returns
+#### Returns
 Type:  Number
 
 
@@ -302,7 +302,7 @@ Type:  Number
 
 Get the repayment schedule in the loan
 
-**Examples**
+#### Examples
 
 If you secure a loan of $30,000 with a 4-month term, a monthly repayment schedule, an annual interest rate of 5%, and a repayment method of equal repayment, the following is your repayment plan list
 
@@ -323,7 +323,7 @@ repaymentScheduleInLoan({
  {"currentPeriod":4,"principal":7567.44,"interest":45.4,"repayment":7612.84}]
  **/
 ```
-### Parameters
+#### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -333,7 +333,7 @@ repaymentScheduleInLoan({
 |isEqualPayment|The repayment method;If true, it's Fixed Repayment Loan; If false, it's Equal Principal Payment Loan|Boolean|\<optional\> |true|
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-### Returns
+#### Returns
 Type:  Array\<Object\>
 | Name    | Description  | Type    | 
 | :------ | :----------- | :------ |
@@ -347,7 +347,7 @@ Type:  Array\<Object\>
 
 Get the Princial for the current period of the loan
 
-**Examples**
+#### Examples
 
 ```js
 import { principalInLoan } from 'calculate-js';
@@ -361,7 +361,7 @@ principalInLoan({
 }); 
 // return:  7477.44
 ```
-### Parameters
+#### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -372,7 +372,7 @@ principalInLoan({
 |isEqualPayment|The repayment method;If true, it's Fixed Repayment Loan; If false, it's Equal Principal Payment Loan|Boolean|\<optional\> |true|
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-### Returns
+#### Returns
 Type:  Number
 
 
@@ -380,7 +380,7 @@ Type:  Number
 
 Get the Interest for the current period of the loan
 
-**Examples**
+#### Examples
 
 ```js
 import { interestInLoan } from 'calculate-js';
@@ -394,7 +394,7 @@ interestInLoan({
 });
 // return:  135.4
 ```
-### Parameters
+#### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -405,7 +405,7 @@ interestInLoan({
 |isEqualPayment|The repayment method;If true, it's Fixed Repayment Loan; If false, it's Equal Principal Payment Loan|Boolean|\<optional\> |true|
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-### Returns
+#### Returns
 Type:  Number
 
 
@@ -415,7 +415,7 @@ Type:  Number
 
 Get the total interest amount of the loan
 
-**Examples**
+#### Examples
 
 ```js
 import { totalInterestInLoan } from 'calculate-js';
@@ -428,7 +428,7 @@ totalInterestInLoan({
 }); 
 // return:  451.36
 ```
-### Parameters
+#### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -438,7 +438,7 @@ totalInterestInLoan({
 |isEqualPayment|The repayment method;If true, it's Fixed Repayment Loan; If false, it's Equal Principal Payment Loan|Boolean|\<optional\> |true|
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-### Returns
+#### Returns
 Type:  Number
 
 
@@ -447,7 +447,7 @@ Type:  Number
 
 Get the mean of a list of number
 
-**Examples**
+#### Examples
 
 ```js
 import { mean } from 'calculate-js';
@@ -457,14 +457,14 @@ mean(
 ); 
 // return:  5.5
 ```
-### Parameters
+#### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
 | data | A list of number | Array\<Number\>  | ||
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-### Returns
+#### Returns
 Type:  Number
 
 
@@ -472,7 +472,7 @@ Type:  Number
 
 Get the variance of a list of number
 
-**Examples**
+#### Examples
 
 ```js
 import { variance } from 'calculate-js';
@@ -483,14 +483,14 @@ variance(
 // return: 8.25
 ```
 
-### Parameters
+#### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
 | data | A list of number | Array\<Number\>  | ||
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-### Returns
+#### Returns
 Type:  Number
 
 
@@ -498,7 +498,7 @@ Type:  Number
 
 Get the standard deviation of population
 
-**Examples**
+#### Examples
 
 ```js
 import { stdDeviation } from 'calculate-js';
@@ -509,14 +509,14 @@ stdDeviation(
 // return: 2.87
 ```
 
-### Parameters
+#### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
 | data | A list of number | Array\<Number\>  | ||
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-### Returns
+#### Returns
 Type:  Number
 
 
@@ -525,7 +525,7 @@ Type:  Number
 
 Get the variance of sample
 
-**Examples**
+#### Examples
 
 ```js
 import { varianceOfSample } from 'calculate-js';
@@ -536,14 +536,14 @@ varianceOfSample(
 // return: 9.17
 ```
 
-### Parameters
+#### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
 | data | A list of number | Array\<Number\>  | ||
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-### Returns
+#### Returns
 Type:  Number
 
 
@@ -551,7 +551,7 @@ Type:  Number
 
 Get the standard deviation of sample
 
-**Examples**
+#### Examples
 
 ```js
 import { stdDeviationOfSample } from 'calculate-js';
@@ -562,14 +562,14 @@ stdDeviationOfSample(
 // return: 3.03
 ```
 
-### Parameters
+#### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
 | data | A list of number | Array\<Number\>  | ||
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-### Returns
+#### Returns
 Type:  Number
 
 
@@ -578,7 +578,7 @@ Type:  Number
 
 Get the target/down deviation of sample
 
-**Examples**
+#### Examples
 
 ```js
 import { semiDeviation } from 'calculate-js';
@@ -590,7 +590,7 @@ semiDeviation(
 // return: 4.01
 ```
 
-### Parameters
+#### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
@@ -598,7 +598,7 @@ semiDeviation(
 |target|The target for the list|Number|||
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
-### Returns
+#### Returns
 Type:  Number
 
 
@@ -606,7 +606,7 @@ Type:  Number
 
 Get the standard normal distribution value by z-score
 
-**Examples**
+#### Examples
 
 ```js
 import { stdNormalDistributionValue } from 'calculate-js';
@@ -615,13 +615,13 @@ stdNormalDistributionValue(-1.24); //  0.10749
 stdNormalDistributionValue(0);// 0.5
 ```
 
-### Parameters
+#### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
 | zScore | z-score| Number  | ||
 
-### Returns
+#### Returns
 Type:  Number
 
 
@@ -639,7 +639,7 @@ If it is an even number before 5, round down.
 
 **Learn more 👉🏻 [banker's rounding](https://docs.alipayplus.com/alipayplus/alipayplus/reconcile_mpp/bank_rounding?role=MPP&product=Payment1&version=1.5.5)**
 
-**Examples**
+#### Examples
 
 ```js
 import { bankersRounding } from 'calculate-js';
@@ -650,13 +650,14 @@ calculatejs.bankersRounding(5.2352, 2); // 5.24
 
 ```
 
-### Parameters
+#### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
 | :------ | :----------- | :------ | :--------- | :------ |
 | number | The number to be rounded | Number  | ||
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
-### Returns
+
+#### Returns
 Type:  Number
 
 
