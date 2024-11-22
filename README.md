@@ -13,7 +13,7 @@ The library is the single JavaScript file decimal.js or ES module decimal.mjs.
 **Browser:**
 
 ```js
-<script src="https://cdnjs.cloudflare.com/ajax/libs/calculate-js/1.0.0/lib/index.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/calculate-js/1.0.0/lib/index.min.js"></script>
 ```
 
 **node:**
@@ -28,7 +28,9 @@ $ pnpm add calculate-js
 $ bun add calculate-js
 ```
 
-### How to use
+### Usage
+
+In demand
 
 ```js
 import { fvInDfc } from 'calculate-js';
@@ -41,13 +43,18 @@ fvInDfc({
 // return: -45761.9643
 ```
 
+Globals
+
+```js
+calculatejs.fvInDfc({
+	n: 20,
+	pv: 0,
+	pmt: 1000,
+	rate: 8
+});
+```
 ## Features
-
-1.
-2. Includes a TypeScript declaration file: lib/index.d.ts
-
-## API
-
+1. methods
 - [fvInDfc](#fvindfcparameters)
 - [pvInDfc](#pvindfcparameters)
 - [rateInDfc](#rateindfcparameters)
@@ -66,6 +73,10 @@ fvInDfc({
 - [stdDeviationOfSample](#stddeviationofsampledata-decimal)
 - [semiDeviation](#semideviationdata-decimal)
 - [semiDeviation](#stdnormaldistributionvaluezscore)
+
+2. Includes a TypeScript declaration file: lib/index.d.ts
+
+## API
 
 ### fvInDfc(Parameters)
 
@@ -369,7 +380,7 @@ interestInLoan({
 	currentPeriod: 2,
 	isEqualPayment: true,
 	decimal: 2
-}); 
+});
 // return:  135.4
 ```
 #### Parameters
@@ -601,6 +612,41 @@ stdNormalDistributionValue(0);// 0.5
 
 #### Returns
 Type:  Number
+
+
+###  bankersRounding(number, decimal)
+
+get the value by banker's rounding method
+
+**rules**
+How to round numbers with banker's rounding With the banker's rounding, when the number to be rounded (the rounding digit) is followed by 1, 2, 3, and 4, round the number down; when followed by 6, 7, 8, and 9, round the number up. However, for numbers followed by 5, the rounding direction is determined according to the number after 5:
+
+When there is a number after 5, round up.
+When there is no number after 5:
+If it is an odd number before 5, round up.
+If it is an even number before 5, round down.
+Learn more 👉🏻 [banker's rounding](https://docs.alipayplus.com/alipayplus/alipayplus/reconcile_mpp/bank_rounding?role=MPP&product=Payment1&version=1.5.5)
+
+**Examples**
+
+```js
+import { bankersRounding } from 'calculate-js';
+calculatejs.bankersRounding(5.234, 2); // 5.23
+calculatejs.bankersRounding(5.235, 2); //  5.24
+calculatejs.bankersRounding(5.245, 2); //  5.24
+calculatejs.bankersRounding(5.2352, 2); // 5.24
+
+```
+
+#### Parameters
+
+| Name    | Description  | Type    | Attributes | Default |
+| :------ | :----------- | :------ | :--------- | :------ |
+| number | The number to be rounded | Number  | ||
+| decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
+#### Returns
+Type:  Number
+
 
 
 ## Test

@@ -161,13 +161,16 @@ export function repaymentScheduleInLoan(opt: LoanOption): Array<Record<string, n
 }
 
 /**
- * @function banker's rounding 
- * (1）被修约的数字小于5时，该数字舍去；
-•（2）被修约的数字大于5时，则进位；
-•（3）被修约的数字等于5时，要看5前面的数字，若是奇数则进位，若是偶数则将5舍掉，即修约后末尾数字都成为偶数；若5的后面还有不为“0”的任何数，则此时无论5的前面是奇数还是偶数，均应进位。
- */
+ * @function banker's rounding
+ * @doc https://docs.alipayplus.com/alipayplus/alipayplus/reconcile_mpp/bank_rounding?role=MPP&product=Payment1&version=1.5.5
+ * */
 
-// export function bankRounding(number: string | number, decimal: number = 2): number {
-// 	const _number = String(number);
-
-// }
+export function bankersRounding(number: number, decimal: number = 2): number {
+	const m = Math.pow(10, decimal);
+	const n: number = decimal ? +number * m : number;
+	const i = Math.floor(n);
+	const f = n - i;
+	const e = Number.EPSILON;
+	const r = f > 0.5 - e && f < 0.5 + e ? (i % 2 === 0 ? i : i + 1) : Math.round(n);
+	return decimal ? r / m : r;
+}

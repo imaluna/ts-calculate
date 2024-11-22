@@ -21,7 +21,7 @@ module.exports = {
 		{
 			dir: 'lib',
 			format: 'umd',
-			entryFileNames: '[name].umd.js',
+			entryFileNames: '[name].min.js',
 			name: 'calculatejs',
 			sourcemap: false
 		}
