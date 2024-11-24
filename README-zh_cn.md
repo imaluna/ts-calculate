@@ -98,7 +98,7 @@ calculate.fvInDfc({
 #### 示例
 
 ```js
-import { fvInDfc } from 'calculate-js';
+import { fvInDfc } from 'ts-calculate';
 fvInDfc({
 	n: 20,
 	pv: 0,
@@ -129,7 +129,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { pvInDfc } from 'calculate-js';
+import { pvInDfc } from 'ts-calculate';
 pvInDfc({
 	n: 20,
 	fv: 50000,
@@ -160,7 +160,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { pmtInDfc } from 'calculate-js';
+import { pmtInDfc } from 'ts-calculate';
 pmtInDfc({
 	n: 20,
 	fv: 50000,
@@ -190,7 +190,7 @@ Type:  Number
 
 #### 示例
 ```js
-import { rateInDfc } from 'calculate-js';
+import { rateInDfc } from 'ts-calculate';
 rateInDfc({
 	n: 20,
 	fv: 50000,
@@ -220,7 +220,7 @@ Type:  Number
 
 #### 示例
 ```js
-import { npv } from 'calculate-js';
+import { npv } from 'ts-calculate';
 npv({
 	initCf: -1000,
 	cfList: [500, 500, 500],
@@ -247,7 +247,7 @@ Type:  Number
 
 #### 示例
 ```js
-import { irr } from 'calculate-js';
+import { irr } from 'ts-calculate';
 irr({
 	initCf: -1000,
 	cfList: [500, 500, 500],
@@ -274,7 +274,7 @@ Type:  Array\<Number\>
 如果你申请了一笔3000,000元贷款，还款期限为30年，年利率为5%，每月还款，等额本息，你每月还款金额为16104.65元。
 
 ```js
-import { pmtInloan } from 'calculate-js';
+import { pmtInloan } from 'ts-calculate';
 pmtInloan({
 	principal: 3000000,
 	rate: 5/12,
@@ -311,7 +311,7 @@ Type:  Number
 如果你申请了一笔30,000元贷款，还款期限为4个月，年化利率为5%，每月还款，等额本息，下面为你的还款计划：
 
 ```js
-import { repaymentScheduleInLoan } from 'calculate-js';
+import { repaymentScheduleInLoan } from 'ts-calculate';
 repaymentScheduleInLoan({
 	principal: 30000,
 	rate: 5/12,
@@ -355,7 +355,7 @@ Type:  Array\<Object\>
 #### 示例
 
 ```js
-import { principalInLoan } from 'calculate-js';
+import { principalInLoan } from 'ts-calculate';
 principalInLoan({
 	principal: 30000,
 	rate: 0.6,
@@ -388,7 +388,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { interestInLoan } from 'calculate-js';
+import { interestInLoan } from 'ts-calculate';
 interestInLoan({
 	principal: 30000,
 	rate: 0.6,
@@ -423,7 +423,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { totalInterestInLoan } from 'calculate-js';
+import { totalInterestInLoan } from 'ts-calculate';
 totalInterestInLoan({
 	principal: 30000,
 	rate: 0.6,
@@ -455,7 +455,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { mean } from 'calculate-js';
+import { mean } from 'ts-calculate';
 mean(
 	[1,2,3,4,5,6,7,8,9,10],
 	2
@@ -480,7 +480,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { variance } from 'calculate-js';
+import { variance } from 'ts-calculate';
 variance(
 	[1,2,3,4,5,6,7,8,9,10],
 	2
@@ -508,7 +508,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { stdDeviation } from 'calculate-js';
+import { stdDeviation } from 'ts-calculate';
 stdDeviation(
   [1,2,3,4,5,6,7,8,9,10],
   2
@@ -535,7 +535,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { varianceOfSample } from 'calculate-js';
+import { varianceOfSample } from 'ts-calculate';
 varianceOfSample(
 	[1,2,3,4,5,6,7,8,9,10],
 	2
@@ -561,7 +561,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { stdDeviationOfSample } from 'calculate-js';
+import { stdDeviationOfSample } from 'ts-calculate';
 stdDeviationOfSample(
 	[1,2,3,4,5,6,7,8,9,10],
 	2
@@ -588,7 +588,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { semiDeviation } from 'calculate-js';
+import { semiDeviation } from 'ts-calculate';
 semiDeviation(
 	[1,2,3,4,5,6,7,8,9,10],
 	3,
@@ -616,7 +616,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { stdNormalDistributionValue } from 'calculate-js';
+import { stdNormalDistributionValue } from 'ts-calculate';
 stdNormalDistributionValue(1.24); //  0.89251
 stdNormalDistributionValue(-1.24); //  0.10749
 stdNormalDistributionValue(0);// 0.5
@@ -647,7 +647,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { bankersRounding } from 'calculate-js';
+import { bankersRounding } from 'ts-calculate';
 calculatejs.bankersRounding(5.234, 2); // 5.23
 calculatejs.bankersRounding(5.235, 2); //  5.24
 calculatejs.bankersRounding(5.245, 2); //  5.24

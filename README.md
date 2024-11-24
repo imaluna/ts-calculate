@@ -102,7 +102,7 @@ Get the future value of annuity in discounted cash flow model
 #### Examples
 
 ```js
-import { fvInDfc } from 'calculate-js';
+import { fvInDfc } from 'ts-calculate';
 fvInDfc({
 	n: 20,
 	pv: 0,
@@ -133,7 +133,7 @@ Get the present value of annuity in discounted cash flow model
 #### Examples
 
 ```js
-import { pvInDfc } from 'calculate-js';
+import { pvInDfc } from 'ts-calculate';
 pvInDfc({
 	n: 20,
 	fv: 50000,
@@ -166,7 +166,7 @@ Get the payment of annuity in discounted cash flow model
 #### Examples
 
 ```js
-import { pmtInDfc } from 'calculate-js';
+import { pmtInDfc } from 'ts-calculate';
 pmtInDfc({
 	n: 20,
 	fv: 50000,
@@ -196,7 +196,7 @@ Get the interest rate per period in discounted cash flow model.If the return is 
 
 #### Examples
 ```js
-import { rateInDfc } from 'calculate-js';
+import { rateInDfc } from 'ts-calculate';
 rateInDfc({
 	n: 20,
 	fv: 50000,
@@ -225,7 +225,7 @@ Get the Net Present Value in discounted cash flow model.
 
 #### Examples
 ```js
-import { npv } from 'calculate-js';
+import { npv } from 'ts-calculate';
 npv({
 	initCf: -1000,
 	cfList: [500, 500, 500],
@@ -253,7 +253,7 @@ Get the Internal Rate of Return in discounted cash flow model. It'll return an a
 
 #### Examples
 ```js
-import { irr } from 'calculate-js';
+import { irr } from 'ts-calculate';
 irr({
 	initCf: -1000,
 	cfList: [500, 500, 500],
@@ -281,7 +281,7 @@ Get the payment per period of the loan.
 If you secure a loan of \$3,000,000 with a 30-year term, a monthly repayment schedule, an annual interest rate of 5%, and a repayment method of equal repayment, you will be required to make a monthly repayment of \$16,104.65.
 
 ```js
-import { pmtInloan } from 'calculate-js';
+import { pmtInloan } from 'ts-calculate';
 pmtInloan({
 	principal: 3000000,
 	rate: 5/12,
@@ -319,7 +319,7 @@ Get the repayment schedule in the loan
 If you secure a loan of $30,000 with a 4-month term, a monthly repayment schedule, an annual interest rate of 5%, and a repayment method of equal repayment, the following is your repayment plan list
 
 ```js
-import { repaymentScheduleInLoan } from 'calculate-js';
+import { repaymentScheduleInLoan } from 'ts-calculate';
 repaymentScheduleInLoan({
 	principal: 30000,
 	rate: 0.6,
@@ -362,7 +362,7 @@ Get the Princial for the current period of the loan
 #### Examples
 
 ```js
-import { principalInLoan } from 'calculate-js';
+import { principalInLoan } from 'ts-calculate';
 principalInLoan({
 	principal: 30000,
 	rate: 0.6,
@@ -395,7 +395,7 @@ Get the Interest for the current period of the loan
 #### Examples
 
 ```js
-import { interestInLoan } from 'calculate-js';
+import { interestInLoan } from 'ts-calculate';
 interestInLoan({
 	principal: 30000,
 	rate: 0.6,
@@ -430,7 +430,7 @@ Get the total interest amount of the loan
 #### Examples
 
 ```js
-import { totalInterestInLoan } from 'calculate-js';
+import { totalInterestInLoan } from 'ts-calculate';
 totalInterestInLoan({
 	principal: 30000,
 	rate: 0.6,
@@ -462,7 +462,7 @@ Get the mean of a list of number
 #### Examples
 
 ```js
-import { mean } from 'calculate-js';
+import { mean } from 'ts-calculate';
 mean(
 	[1,2,3,4,5,6,7,8,9,10],
 	2
@@ -487,7 +487,7 @@ Get the variance of a list of number
 #### Examples
 
 ```js
-import { variance } from 'calculate-js';
+import { variance } from 'ts-calculate';
 variance(
 	[1,2,3,4,5,6,7,8,9,10],
 	2
@@ -513,7 +513,7 @@ Get the standard deviation of population
 #### Examples
 
 ```js
-import { stdDeviation } from 'calculate-js';
+import { stdDeviation } from 'ts-calculate';
 stdDeviation(
 	[1,2,3,4,5,6,7,8,9,10],
 	2
@@ -540,7 +540,7 @@ Get the variance of sample
 #### Examples
 
 ```js
-import { varianceOfSample } from 'calculate-js';
+import { varianceOfSample } from 'ts-calculate';
 varianceOfSample(
 	[1,2,3,4,5,6,7,8,9,10],
 	2
@@ -566,7 +566,7 @@ Get the standard deviation of sample
 #### Examples
 
 ```js
-import { stdDeviationOfSample } from 'calculate-js';
+import { stdDeviationOfSample } from 'ts-calculate';
 stdDeviationOfSample(
 	[1,2,3,4,5,6,7,8,9,10],
 	2
@@ -593,7 +593,7 @@ Get the target/down deviation of sample
 #### Examples
 
 ```js
-import { semiDeviation } from 'calculate-js';
+import { semiDeviation } from 'ts-calculate';
 semiDeviation(
 	[1,2,3,4,5,6,7,8,9,10],
 	3,
@@ -621,7 +621,7 @@ Get the standard normal distribution value by z-score
 #### Examples
 
 ```js
-import { stdNormalDistributionValue } from 'calculate-js';
+import { stdNormalDistributionValue } from 'ts-calculate';
 stdNormalDistributionValue(1.24); //  0.89251
 stdNormalDistributionValue(-1.24); //  0.10749
 stdNormalDistributionValue(0);// 0.5
@@ -654,7 +654,7 @@ If it is an even number before 5, round down.
 #### Examples
 
 ```js
-import { bankersRounding } from 'calculate-js';
+import { bankersRounding } from 'ts-calculate';
 calculatejs.bankersRounding(5.234, 2); // 5.23
 calculatejs.bankersRounding(5.235, 2); //  5.24
 calculatejs.bankersRounding(5.245, 2); //  5.24
