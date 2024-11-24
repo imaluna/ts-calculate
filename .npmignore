@@ -4,10 +4,12 @@ node_modules/
 .eslintrc.js
 .gitignore
 .prettierignore
-.prettier.js
+.prettier.json
 pnpm-lock.yaml
 rollup.config.ts
 tsconfig.base.json
 tsconfig.json
 tsconfig.tsbuildinfo
+/demo
 .husky/
+jest.config.js

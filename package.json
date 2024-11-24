@@ -6,6 +6,7 @@
   "module": "lib/calculate.esm.js",
   "jsnext:main": "lib/calculate.esm.js",
   "browser": "lib/calculate.min.js",
+	"unpkg":"lib/calculate.js",
 	"types": "lib/index.d.ts",
 	"repository": {
 		"type": "git",
@@ -13,7 +14,8 @@
 	},
 	"scripts": {
 		"clean": "rimraf lib",
-		"build": "npm run clean && rollup -c",
+		"build": "npm run clean && rollup -c && npm run build-unpkg",
+		"build-unpkg": "rollup -c --unpkg",
 		"prettier": "prettier --write .",
 		"lint": "eslint ./ --fix",
 		"prepare": "husky install",
