@@ -664,3 +664,11 @@ calculatejs.bankersRounding(5.2352, 2); // 5.24
 ####  返回值
 Type:  Number
 
+
+## 测试
+
+要从根目录使用Node.js运行测试：
+
+```bash
+npm run test
+```
