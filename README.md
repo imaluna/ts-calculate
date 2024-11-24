@@ -32,7 +32,7 @@ $ bun add calculate-js
 
 ## Usage
 
-In demand
+ES6
 
 ```js
 import { fvInDfc } from 'calculate-js';
@@ -43,6 +43,18 @@ fvInDfc({
 	rate: 8
 });
 // return: -45761.9643
+```
+
+CMD
+
+```js
+const {fvInDfc} = require('calculate-js');
+fvInDfc({
+	n: 20,
+	pv: 0,
+	pmt: 1000,
+	rate: 8
+});
 ```
 
 Globals
