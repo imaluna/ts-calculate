@@ -1,12 +1,12 @@
-# calculate-js
+# ts-calculate
 
-A commonly used calculator written by JavaScript, including calculations related to finance, statistics, etc.
+A commonly used calculator written by Typescript, including calculations related to finance, statistics, etc.
 
-[![npm version](https://img.shields.io/npm/v/calculate-js.svg)](https://www.npmjs.com/package/calculate-js)
-[![npm downloads](https://img.shields.io/npm/dw/calculate-js)](https://www.npmjs.com/package/calculate-js)
-[![CDNJS](https://img.shields.io/cdnjs/v/calculate-js.svg)](https://cdnjs.com/libraries/calculate-js)
+[![npm version](https://img.shields.io/npm/v/ts-calculate.svg)](https://www.npmjs.com/package/ts-calculate)
+[![npm downloads](https://img.shields.io/npm/dw/ts-calculate)](https://www.npmjs.com/package/ts-calculate)
+[![CDNJS](https://img.shields.io/cdnjs/v/ts-calculate.svg)](https://cdnjs.com/libraries/ts-calculate)
 
-[中文](https://github.com/imaluna/calculate-js/blob/main/README-zh_cn.md)
+[中文](https://github.com/imaluna/ts-calculate/blob/main/README-zh_cn.md)
 
 ## Load
 
@@ -15,19 +15,19 @@ The library is the single JavaScript file calculate.js or ES module calculate.mj
 **cdn**
 
 ```js
-<script src="https://cdnjs.cloudflare.com/ajax/libs/calculate-js/1.0.0/lib/calculate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ts-calculate/1.0.0/lib/calculate.min.js"></script>
 ```
 
 **node:**
 
 ```bash
-$ npm install calculate-js --save
+$ npm install ts-calculate --save
 # or
-$ yarn add calculate-js
+$ yarn add ts-calculate
 # or
-$ pnpm add calculate-js
+$ pnpm add ts-calculate
 # or
-$ bun add calculate-js
+$ bun add ts-calculate
 ```
 
 ## Usage
@@ -35,7 +35,7 @@ $ bun add calculate-js
 ES6
 
 ```js
-import { fvInDfc } from 'calculate-js';
+import { fvInDfc } from 'ts-calculate';
 fvInDfc({
 	n: 20,
 	pv: 0,
@@ -48,7 +48,7 @@ fvInDfc({
 CMD
 
 ```js
-const {fvInDfc} = require('calculate-js');
+const {fvInDfc} = require('ts-calculate');
 fvInDfc({
 	n: 20,
 	pv: 0,
@@ -60,7 +60,7 @@ fvInDfc({
 Globals
 
 ```js
-calculatejs.fvInDfc({
+calculate.fvInDfc({
 	n: 20,
 	pv: 0,
 	pmt: 1000,

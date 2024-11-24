@@ -32,7 +32,7 @@ if (!unpkg) {
 			dir: 'lib',
 			format: 'umd',
 			entryFileNames: 'calculate.min.js',
-			name: 'calculatejs',
+			name: 'calculate',
 			sourcemap: false
 		}
 	);

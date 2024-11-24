@@ -1,6 +1,6 @@
-# calculate-js
+# ts-calculate
 
-一个由JavaScript编写的常用计算器，包括与金融、统计等相关的计算。
+一个由Typescript编写的常用计算器，包括与金融、统计等相关的计算。
 
 
 ## 引入
@@ -10,19 +10,19 @@ The library is the single JavaScript file decimal.js or ES module decimal.mjs.
 **cdn**
 
 ```js
-<script src="https://cdnjs.cloudflare.com/ajax/libs/calculate-js/1.0.0/lib/calculate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ts-calculate/1.0.0/lib/calculate.min.js"></script>
 ```
 
 **node**
 
 ```bash
-$ npm install calculate-js --save
+$ npm install ts-calculate --save
 # or
-$ yarn add calculate-js
+$ yarn add ts-calculate
 # or
-$ pnpm add calculate-js
+$ pnpm add ts-calculate
 # or
-$ bun add calculate-js
+$ bun add ts-calculate
 ```
 
 
@@ -31,7 +31,7 @@ $ bun add calculate-js
 ES6
 
 ```js
-import { fvInDfc } from 'calculate-js';
+import { fvInDfc } from 'ts-calculate';
 fvInDfc({
 	n: 20,
 	pv: 0,
@@ -44,7 +44,7 @@ fvInDfc({
 CMD
 
 ```js
-const {fvInDfc} = require('calculate-js');
+const {fvInDfc} = require('ts-calculate');
 fvInDfc({
 	n: 20,
 	pv: 0,
@@ -56,7 +56,7 @@ fvInDfc({
 全局
 
 ```js
-calculatejs.fvInDfc({
+calculate.fvInDfc({
 	n: 20,
 	pv: 0,
 	pmt: 1000,

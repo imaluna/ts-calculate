@@ -1,7 +1,7 @@
 {
 	"name": "ts-calculate",
 	"version": "1.0.0",
-	"description": "A commonly used calculator written by JavaScript, including calculations related to finance, statistics, etc.",
+	"description": "A commonly used calculator written by Typescript, including calculations related to finance, statistics, etc.",
 	"main": "lib/calculate.cjs.js",
   "module": "lib/calculate.esm.js",
   "jsnext:main": "lib/calculate.esm.js",
@@ -10,7 +10,7 @@
 	"types": "lib/index.d.ts",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/imaluna/calculate-js"
+		"url": "https://github.com/imaluna/ts-calculate"
 	},
 	"scripts": {
 		"clean": "rimraf lib",
@@ -30,8 +30,8 @@
 		"finance",
 		"statistics"
 	],
-	"author": "imaluna<https://github.com/imaluna/calculate-js.git",
-	"homepage": "https://github.com/imaluna/calculate-js#readme",
+	"author": "imaluna<https://github.com/imaluna/ts-calculate.git",
+	"homepage": "https://github.com/imaluna/ts-calculate#readme",
 	"private": false,
 	"publishConfig": {
 		"access": "public",
