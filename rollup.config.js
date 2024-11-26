@@ -52,7 +52,7 @@ if (!unpkg) {
 		dir: 'lib',
 		format: 'umd',
 		entryFileNames: 'calculate.js',
-		name: 'calculatejs',
+		name: 'calculate',
 		sourcemap: false
 	});
 }

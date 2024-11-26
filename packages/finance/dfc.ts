@@ -152,7 +152,7 @@ export function rateInDfc(opt: DfcOption): number {
 	let max = 100;
 	const err = POW(10, 1 - decimal);
 	let rate = +((min + max) / 2).toFixed(decimal);
-	while (rate <= max && rate >= min) {
+	while (max > min) {
 		const _fv = fvInDfc({ n, pv, rate, pmt, isEnd, decimal });
 		if (ABS(_fv - fv) <= err) {
 			break;
@@ -164,7 +164,8 @@ export function rateInDfc(opt: DfcOption): number {
 		}
 		rate = +((min + max) / 2).toFixed(decimal);
 	}
-	return rate;
+	if (rate <= max && rate >= min) return rate;
+	return NaN;
 }
 
 /**
@@ -177,7 +178,6 @@ export function rateInDfc(opt: DfcOption): number {
  * @returns {number}
  */
 export function npv(opt: NpvOption): number {
-	// todo
 	opt = { decimal: DECIMAL, ...opt };
 	const { initCf, cfList, rate, decimal } = opt as Required<NpvOption>;
 	let sum = initCf;
@@ -186,7 +186,6 @@ export function npv(opt: NpvOption): number {
 	});
 	return toFixed(sum, decimal);
 }
-
 /**
  * @function Discounted cash flow model: Get the Interest Rate of Return，there may be multiple return values
  * @param {NpvOption} opt
@@ -196,22 +195,21 @@ export function npv(opt: NpvOption): number {
  * @returns {number[]}
  */
 export function irr(opt: NpvOption): number[] {
-	// todo
 	opt = { decimal: DECIMAL, ...opt };
 	const { initCf, cfList, decimal } = opt as Required<NpvOption>;
 	const initSymbol = getSymbol(initCf);
 	const notValid = cfList.every((cf) => getSymbol(cf) === initSymbol);
 	if (notValid) return [];
 	const min = 0;
-	const precision = toFixed(POW(10, -decimal), decimal);
 	let rate = min;
 	const list: number[] = [];
+
 	while (rate <= 100) {
 		const _npv = npv({ ...opt, rate });
-		if (ABS(_npv) <= precision) {
+		if (ABS(_npv) <= 1) {
 			list.push(rate);
 		}
-		rate = toFixed(rate + precision, decimal);
+		rate = toFixed(rate + 0.001, decimal);
 	}
 	return list;
 }
