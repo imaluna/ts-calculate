@@ -299,6 +299,7 @@ pmtInloan({
 | principal | The Principle of the loan | Number  | ||
 | rate      | The interst rate of every period;    | Number|   ||
 | periods | Number of loan terms  | Number  |        |   ||
+| currentPeriod| The current period of the loan, If isEqualPayment is false, the currentPeriod is required | Number|  \<optional\>      |   ||
 |isEqualPayment|The repayment method;If true, it's Fixed Repayment Loan; If false, it's Equal Principal Payment Loan|Boolean|\<optional\> |true|
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 

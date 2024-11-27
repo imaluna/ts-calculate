@@ -336,6 +336,7 @@ repaymentScheduleInLoan({
 | principal | 贷款本金 | Number  | ||
 | rate      | 每期还款利率    | Number|   ||
 | periods | 总期数 | Number  |        |   ||
+| currentPeriod| 当前期数，如果isEqualPayment是false，currentPeriod为必填| Number|  \<optional\>      |   ||
 |isEqualPayment|是否为等额本息贷款，true-等额本息，false-等额本金 |Boolean|选填 |true|
 |decimal | 小数保留位数  | Number  | 可选       | 4  ||
 
