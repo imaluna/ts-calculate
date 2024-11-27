@@ -249,17 +249,18 @@ Type:  Number
 
 ###  irr(Parameters)
 
-Get the Internal Rate of Return in discounted cash flow model. It'll return an array of all posible values
+Get the Internal Rate of Return in discounted cash flow model. 
 
 #### Examples
 ```js
 import { irr } from 'ts-calculate';
 irr({
-	initCf: -1000,
-	cfList: [500, 500, 500],
+	initCf: -5000,
+	cfList: [1000, 3000, 1500]
 });
-// return: [23.3752]
+// return: 4.687
 ```
+
 #### Parameters
 
 | Name    | Description  | Type    | Attributes | Default |
@@ -269,7 +270,7 @@ irr({
 | decimal | Reserved decimal places for results  | Number  | \<optional\>        | 4  ||
 
 #### Returns
-Type:  Array\<Number\>
+Type:  Number
 
 
 ###  pmtInloan(Parameters)

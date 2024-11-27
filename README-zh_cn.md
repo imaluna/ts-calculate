@@ -243,17 +243,19 @@ Type:  Number
 
 
 ###  irr(Parameters)
-在现金流折现模式下计算内部收益率，可能有多个计算结果，会返回所有可能的值
+
+在现金流折现模式下计算内部收益率
 
 #### 示例
 ```js
 import { irr } from 'ts-calculate';
 irr({
-	initCf: -1000,
-	cfList: [500, 500, 500],
+	initCf: -5000,
+	cfList: [1000, 3000, 1500]
 });
-// return: [23.3752]
+// return: 4.687
 ```
+
 #### 参数
 
 | 参数名    | 描述  | 类型    | 属性 | 默认值 |
@@ -264,7 +266,7 @@ irr({
 
 
 ####  返回值
-Type:  Array\<Number\>
+Type:  Number
 
 
 ###  pmtInloan(Parameters)

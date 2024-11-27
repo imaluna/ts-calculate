@@ -192,24 +192,30 @@ export function npv(opt: NpvOption): number {
  * @param {number} opt.initCf The initial cash flow
  * @param {number[]} opt.cfListv Cash flow list
  * @param {number} opt.decimal not required
- * @returns {number[]}
+ * @returns {number}
  */
-export function irr(opt: NpvOption): number[] {
+export function irr(opt: NpvOption): number {
 	opt = { decimal: DECIMAL, ...opt };
 	const { initCf, cfList, decimal } = opt as Required<NpvOption>;
 	const initSymbol = getSymbol(initCf);
 	const notValid = cfList.every((cf) => getSymbol(cf) === initSymbol);
-	if (notValid) return [];
+	if (notValid) return NaN;
 	const min = 0;
 	let rate = min;
-	const list: number[] = [];
-
+	const npvList: number[] = [];
+	const rateList: number[] = [];
 	while (rate <= 100) {
 		const _npv = npv({ ...opt, rate });
 		if (ABS(_npv) <= 1) {
-			list.push(rate);
+			npvList.push(ABS(_npv));
+			rateList.push(rate);
 		}
 		rate = toFixed(rate + 0.001, decimal);
 	}
-	return list;
+	if (npvList.length > 0) {
+		const minNpv = Math.min(...npvList);
+		const index = npvList.indexOf(minNpv);
+		return rateList[index];
+	}
+	return NaN;
 }

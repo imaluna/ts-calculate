@@ -49,6 +49,6 @@ describe('repaymentScheduleInLoan', () => {
 			initCf: -5000,
 			cfList: [1000, 3000, 1500]
 		});
-		expect(_irr).toContain(4.6873);
+		expect(_irr).toBeCloseTo(4.6873);
 	});
 });

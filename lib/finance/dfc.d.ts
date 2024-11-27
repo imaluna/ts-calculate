@@ -63,6 +63,6 @@ export declare function npv(opt: NpvOption): number;
  * @param {number} opt.initCf The initial cash flow
  * @param {number[]} opt.cfListv Cash flow list
  * @param {number} opt.decimal not required
- * @returns {number[]}
+ * @returns {number}
  */
-export declare function irr(opt: NpvOption): number[];
+export declare function irr(opt: NpvOption): number;
