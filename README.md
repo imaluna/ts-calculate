@@ -2,6 +2,9 @@
 
 A commonly used calculator written by Typescript, including calculations related to finance, statistics, etc.
 
+[中文](https://github.com/imaluna/calculate-tool/blob/main/README-zh_cn.md)
+
+
 **node:**
 
 ```bash
