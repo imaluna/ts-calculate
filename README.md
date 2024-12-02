@@ -2,22 +2,6 @@
 
 A commonly used calculator written by Typescript, including calculations related to finance, statistics, etc.
 
-[![npm version](https://img.shields.io/npm/v/calculate-tool.svg)](https://www.npmjs.com/package/calculate-tool)
-[![npm downloads](https://img.shields.io/npm/dw/calculate-tool)](https://www.npmjs.com/package/calculate-tool)
-[![CDNJS](https://img.shields.io/cdnjs/v/calculate-tool.svg)](https://cdnjs.com/libraries/calculate-tool)
-
-[中文](https://github.com/imaluna/calculate-tool/blob/main/README-zh_cn.md)
-
-## Load
-
-The library is the single JavaScript file calculator.js or ES module calculator.mjs.
-
-**cdn**
-
-```js
-<script src="https://cdnjs.cloudflare.com/ajax/libs/calculate-tool/1.0.0/lib/calculator.min.js"></script>
-```
-
 **node:**
 
 ```bash
