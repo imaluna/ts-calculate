@@ -1,4 +1,4 @@
-# ts-calculate
+# calculate-tool
 
 一个由Typescript编写的常用计算器，包括与金融、统计等相关的计算。
 
@@ -10,19 +10,19 @@ The library is the single JavaScript file decimal.js or ES module decimal.mjs.
 **cdn**
 
 ```js
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ts-calculate/1.0.0/lib/calculate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/calculate-tool/1.0.0/lib/calculator.min.js"></script>
 ```
 
 **node**
 
 ```bash
-$ npm install ts-calculate --save
+$ npm install calculate-tool --save
 # or
-$ yarn add ts-calculate
+$ yarn add calculate-tool
 # or
-$ pnpm add ts-calculate
+$ pnpm add calculate-tool
 # or
-$ bun add ts-calculate
+$ bun add calculate-tool
 ```
 
 
@@ -31,7 +31,7 @@ $ bun add ts-calculate
 ES6
 
 ```js
-import { fvInDfc } from 'ts-calculate';
+import { fvInDfc } from 'calculate-tool';
 fvInDfc({
 	n: 20,
 	pv: 0,
@@ -44,7 +44,7 @@ fvInDfc({
 CMD
 
 ```js
-const {fvInDfc} = require('ts-calculate');
+const {fvInDfc} = require('calculate-tool');
 fvInDfc({
 	n: 20,
 	pv: 0,
@@ -56,7 +56,7 @@ fvInDfc({
 全局
 
 ```js
-calculate.fvInDfc({
+calculator.fvInDfc({
 	n: 20,
 	pv: 0,
 	pmt: 1000,
@@ -98,7 +98,7 @@ calculate.fvInDfc({
 #### 示例
 
 ```js
-import { fvInDfc } from 'ts-calculate';
+import { fvInDfc } from 'calculate-tool';
 fvInDfc({
 	n: 20,
 	pv: 0,
@@ -129,7 +129,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { pvInDfc } from 'ts-calculate';
+import { pvInDfc } from 'calculate-tool';
 pvInDfc({
 	n: 20,
 	fv: 50000,
@@ -160,7 +160,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { pmtInDfc } from 'ts-calculate';
+import { pmtInDfc } from 'calculate-tool';
 pmtInDfc({
 	n: 20,
 	fv: 50000,
@@ -190,7 +190,7 @@ Type:  Number
 
 #### 示例
 ```js
-import { rateInDfc } from 'ts-calculate';
+import { rateInDfc } from 'calculate-tool';
 rateInDfc({
 	n: 20,
 	fv: 50000,
@@ -220,7 +220,7 @@ Type:  Number
 
 #### 示例
 ```js
-import { npv } from 'ts-calculate';
+import { npv } from 'calculate-tool';
 npv({
 	initCf: -1000,
 	cfList: [500, 500, 500],
@@ -248,7 +248,7 @@ Type:  Number
 
 #### 示例
 ```js
-import { irr } from 'ts-calculate';
+import { irr } from 'calculate-tool';
 irr({
 	initCf: -5000,
 	cfList: [1000, 3000, 1500]
@@ -276,7 +276,7 @@ Type:  Number
 如果你申请了一笔3000,000元贷款，还款期限为30年，年利率为5%，每月还款，等额本息，你每月还款金额为16104.65元。
 
 ```js
-import { pmtInloan } from 'ts-calculate';
+import { pmtInloan } from 'calculate-tool';
 pmtInloan({
 	principal: 3000000,
 	rate: 5/12,
@@ -313,7 +313,7 @@ Type:  Number
 如果你申请了一笔30,000元贷款，还款期限为4个月，年化利率为5%，每月还款，等额本息，下面为你的还款计划：
 
 ```js
-import { repaymentScheduleInLoan } from 'ts-calculate';
+import { repaymentScheduleInLoan } from 'calculate-tool';
 repaymentScheduleInLoan({
 	principal: 30000,
 	rate: 5/12,
@@ -358,7 +358,7 @@ Type:  Array\<Object\>
 #### 示例
 
 ```js
-import { principalInLoan } from 'ts-calculate';
+import { principalInLoan } from 'calculate-tool';
 principalInLoan({
 	principal: 30000,
 	rate: 0.6,
@@ -391,7 +391,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { interestInLoan } from 'ts-calculate';
+import { interestInLoan } from 'calculate-tool';
 interestInLoan({
 	principal: 30000,
 	rate: 0.6,
@@ -426,7 +426,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { totalInterestInLoan } from 'ts-calculate';
+import { totalInterestInLoan } from 'calculate-tool';
 totalInterestInLoan({
 	principal: 30000,
 	rate: 0.6,
@@ -458,7 +458,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { mean } from 'ts-calculate';
+import { mean } from 'calculate-tool';
 mean(
 	[1,2,3,4,5,6,7,8,9,10],
 	2
@@ -483,7 +483,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { variance } from 'ts-calculate';
+import { variance } from 'calculate-tool';
 variance(
 	[1,2,3,4,5,6,7,8,9,10],
 	2
@@ -511,7 +511,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { stdDeviation } from 'ts-calculate';
+import { stdDeviation } from 'calculate-tool';
 stdDeviation(
   [1,2,3,4,5,6,7,8,9,10],
   2
@@ -538,7 +538,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { varianceOfSample } from 'ts-calculate';
+import { varianceOfSample } from 'calculate-tool';
 varianceOfSample(
 	[1,2,3,4,5,6,7,8,9,10],
 	2
@@ -564,7 +564,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { stdDeviationOfSample } from 'ts-calculate';
+import { stdDeviationOfSample } from 'calculate-tool';
 stdDeviationOfSample(
 	[1,2,3,4,5,6,7,8,9,10],
 	2
@@ -591,7 +591,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { semiDeviation } from 'ts-calculate';
+import { semiDeviation } from 'calculate-tool';
 semiDeviation(
 	[1,2,3,4,5,6,7,8,9,10],
 	3,
@@ -619,7 +619,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { stdNormalDistributionValue } from 'ts-calculate';
+import { stdNormalDistributionValue } from 'calculate-tool';
 stdNormalDistributionValue(1.24); //  0.89251
 stdNormalDistributionValue(-1.24); //  0.10749
 stdNormalDistributionValue(0);// 0.5
@@ -650,7 +650,7 @@ Type:  Number
 #### 示例
 
 ```js
-import { bankersRounding } from 'ts-calculate';
+import { bankersRounding } from 'calculate-tool';
 calculatejs.bankersRounding(5.234, 2); // 5.23
 calculatejs.bankersRounding(5.235, 2); //  5.24
 calculatejs.bankersRounding(5.245, 2); //  5.24

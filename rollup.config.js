@@ -17,22 +17,22 @@ if (!unpkg) {
 		{
 			dir: 'lib',
 			format: 'cjs',
-			entryFileNames: 'calculate.cjs.js',
+			entryFileNames: 'calculate-tool.cjs.js',
 			sourcemap: false
 		},
 		// Keep the bundle as an ES module file
 		{
 			dir: 'lib',
 			format: 'esm',
-			entryFileNames: 'calculate.esm.js',
+			entryFileNames: 'calculate-tool.esm.js',
 			sourcemap: false
 		},
 		// Universal Module Definition, works as amd, cjs and iife all in one
 		{
 			dir: 'lib',
 			format: 'umd',
-			entryFileNames: 'calculate.min.js',
-			name: 'calculate',
+			entryFileNames: 'calculate-tool.min.js',
+			name: 'calculateTool',
 			sourcemap: false
 		}
 	);
@@ -51,8 +51,8 @@ if (!unpkg) {
 	output.push({
 		dir: 'lib',
 		format: 'umd',
-		entryFileNames: 'calculate.js',
-		name: 'calculate',
+		entryFileNames: 'calculate-tool.js',
+		name: 'calculateTool',
 		sourcemap: false
 	});
 }
