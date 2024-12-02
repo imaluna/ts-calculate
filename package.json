@@ -1,6 +1,6 @@
 {
 	"name": "calculate-tool",
-	"version": "1.0.0",
+	"version": "1.0.2",
 	"description": "A commonly used calculator written by Typescript, including calculations related to finance, statistics, etc.",
 	"main": "lib/calculator.cjs.js",
   "module": "lib/calculator.esm.js",
@@ -24,8 +24,9 @@
 		"publish": "npm publish"
 	},
 	"keywords": [
+		"calculate",
 		"calculator",
-		"calculator",
+		"tool",
 		"cal",
 		"finance",
 		"statistics"
