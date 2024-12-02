@@ -44,7 +44,7 @@ fvInDfc({
 Globals
 
 ```js
-calculator.fvInDfc({
+calculatorTool.fvInDfc({
 	n: 20,
 	pv: 0,
 	pmt: 1000,
