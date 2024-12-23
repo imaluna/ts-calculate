@@ -3,7 +3,6 @@ import { DataTypeEnum } from '../types/global';
 export function isEmpty(val: any): boolean {
 	return val === '' || val === undefined || val === null;
 }
-
 /**
  * @function check if the key value in the object is not empty
  * @param {Object} params The object being inspected

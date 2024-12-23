@@ -14,8 +14,7 @@
 	},
 	"scripts": {
 		"clean": "rimraf lib",
-		"build": "npm run clean && rollup -c && npm run build-unpkg",
-		"build-unpkg": "rollup -c --unpkg",
+		"build": "rollup -c",
 		"prettier": "prettier --write .",
 		"lint": "eslint ./ --fix",
 		"prepare": "husky install",
